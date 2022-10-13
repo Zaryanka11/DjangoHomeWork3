@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+
+{% block css_add %}
+    <link rel="stylesheet" href="{% static 'Horoscope/css/index.css' %}">
+{% endblock %}
+
+{% block title %}
+    {{ sign|upper }}
+{% endblock %}
+
+
+{% block content %}
+{#    {% include 'includes/navbar.html' %}#}
+    <h1>Приложение Гороскоп</h1>
+    <ul>
+        {% for zodiac in zodiacs %}
+            <li><a href="{% url 'horoscope_name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a></li>
+        {% endfor %}
+
+        {#    {% for key, value in dict_zodiac.items %}#}
+        {#        <p>{{ key|upper }}: {{ value|title }}</p>#}
+        {#    {% empty %}#}
+        {#        <p>Sorry the dict is empty</p>#}
+        {#    {% endfor %}#}
+    </ul>
+{% endblock %}
+ul>li*6

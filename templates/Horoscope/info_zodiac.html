@@ -1,0 +1,42 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Гороскоп для {{ sign }}
+{% endblock %}
+
+{% block css_add %}
+    <link rel="stylesheet" href="{% static 'Horoscope/css/info.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ sign }}</h1>
+    {% include 'includes/navbar.html' %}
+    {% if description is None %}
+        <h2>Неправильный знак зодиака - {{ sign|capfirst }}</h2>
+    {% else %}
+        <h2>{{ description }}</h2>
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+{#{% if my_list|length >= 3 %}#}
+{#    <p>{{ my_list }} - список из 3 и более элементов</p>#}
+{#{% elif my_list|length == 2 %}#}
+{#    <p>{{ my_list }} - список из 2 элементов</p>#}
+{#{% elif my_list|length == 1 %}#}
+{#    <p>{{ my_list }} - список из одного элемента</p>#}
+{#{% else %}#}
+{#    <p>{{ my_list }} - список пуст</p>#}
+{#{% endif %}#}
+{#<br>#}
+{#<br>#}
+{#<h2>{{ my_int }}</h2>#}
+{#<h2>{{ my_float }}</h2>#}
+{#<h2>{{ my_list }}</h2>#}
+{#<h2>{{ my_tuple }}</h2>#}
+{#<h2>{{ my_dict }} ключ = {{ my_dict.name }}</h2>#}
